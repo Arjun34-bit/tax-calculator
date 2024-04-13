@@ -57,7 +57,7 @@ function calcultateTax(gA, eAmounts, age, deduct) {
       return;
     }
   } else {
-    price.innerHTML = totalIncome;
+    price.innerHTML = formatIndianRupee(totalIncome);
   }
 }
 
