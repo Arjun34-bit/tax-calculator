@@ -1,0 +1,128 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "PT Sans", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 18px;
+}
+
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: white;
+}
+
+.container {
+  height: 75%;
+  width: 35%;
+  padding: 50px;
+  border: 3px solid silver;
+  border-radius: 5px;
+}
+
+.form-elemnts {
+  margin: 3rem 2rem;
+}
+
+.form-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  text-align: start;
+  margin: 1rem 1rem 0rem 0rem;
+}
+
+.input-box {
+  padding: 15px 15px;
+  width: 90%;
+  border-radius: 5px;
+  border: 2px solid silver;
+  font-family: "PT Sans", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 18px;
+  opacity: 0.5;
+}
+
+.button-box {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  margin: 3rem 2rem;
+}
+
+.submit-btn {
+  width: 98%;
+  margin: 3rem 0rem;
+  padding: 15px 15px;
+  background-color: #6458f5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-family: "PT Sans", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.pop-up {
+  border: 3px solid silver;
+  width: 50%;
+  height: 60%;
+  background-color: #ffff;
+  position: absolute;
+}
+
+.hidden {
+  display: none;
+}
+
+.income-info {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.btn-container {
+  /* margin: 3rem 1rem; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading {
+  font-size: 35px;
+}
+
+.amount {
+  font-size: 25px;
+}
+
+.info-msg {
+  font-size: 15px;
+}
+
+.close-btn {
+  /* margin: 8rem 0.5rem; */
+  padding: 15px 15px;
+  background-color: #6458f5;
+  color: #ffff;
+  border: none;
+  border-radius: 5px;
+  font-family: "PT Sans", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 18px;
+  cursor: pointer;
+}

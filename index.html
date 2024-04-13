@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tax Calculator</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+    <link rel="stylesheet" href="/resources/demos/style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+      $(function () {
+        $(document).tooltip();
+      });
+    </script>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="container">
+        <div class="form-elemnts">
+          <div class="form-inputs">
+            <label class="label"
+              >Enter gross Annual Income
+              <i
+                class="bi bi-question-circle"
+                title="Gross annual income is your total income salary in a year before any deduction."
+              ></i
+            ></label>
+            <input
+              type="number"
+              id="grossAmount"
+              class="input-box"
+              placeholder="Enter gross Annual Income"
+            />
+          </div>
+          <div class="form-inputs">
+            <label class="label"
+              >Enter extra Income
+              <i
+                class="bi bi-question-circle"
+                title="Income from another Buisness/Job"
+              ></i
+            ></label>
+            <input
+              type="number"
+              id="eIncome"
+              class="input-box"
+              placeholder="Enter extra Income"
+            />
+          </div>
+          <div class="form-inputs">
+            <label class="label"
+              >Enter age group
+              <i class="bi bi-question-circle" title="Enter Your Age "></i
+            ></label>
+            <input type="number" id="age" class="input-box" />
+          </div>
+          <div class="form-inputs">
+            <label class="label"
+              >Enter total applicable deductions
+              <i
+                class="bi bi-question-circle"
+                title="Your total applicable deductions"
+              ></i
+            ></label>
+            <input
+              type="number"
+              id="deductions"
+              class="input-box"
+              placeholder="Enter total applicable deductions"
+            />
+          </div>
+          <div class="form-inputs">
+            <button id="submit-btn" class="submit-btn">Submit</button>
+          </div>
+        </div>
+      </div>
+      <div id="pop-up-container" class="pop-up hidden">
+        <div class="income-info">
+          <h2 id="msg" class="heading">Your Overall Income will be</h2>
+          <span id="price" class="amount">12,000</span>
+          <p class="info-msg">after tax deductions</p>
+        </div>
+        <div class="btn-container">
+          <button id="close-btn" class="close-btn">Close</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
