@@ -35,61 +35,86 @@
     <div class="parent">
       <div class="container">
         <div class="form-elemnts">
-          <div class="form-inputs">
-            <label class="label"
-              >Enter gross Annual Income
-              <i
-                class="bi bi-question-circle"
-                title="Gross annual income is your total income salary in a year before any deduction."
-              ></i
-            ></label>
-            <input
-              type="number"
-              id="grossAmount"
-              class="input-box"
-              placeholder="Enter gross Annual Income"
-            />
-          </div>
-          <div class="form-inputs">
-            <label class="label"
-              >Enter extra Income
-              <i
-                class="bi bi-question-circle"
-                title="Income from another Buisness/Job"
-              ></i
-            ></label>
-            <input
-              type="number"
-              id="eIncome"
-              class="input-box"
-              placeholder="Enter extra Income"
-            />
-          </div>
-          <div class="form-inputs">
-            <label class="label"
-              >Enter age group
-              <i class="bi bi-question-circle" title="Enter Your Age "></i
-            ></label>
-            <input type="number" id="age" class="input-box" />
-          </div>
-          <div class="form-inputs">
-            <label class="label"
-              >Enter total applicable deductions
-              <i
-                class="bi bi-question-circle"
-                title="Your total applicable deductions"
-              ></i
-            ></label>
-            <input
-              type="number"
-              id="deductions"
-              class="input-box"
-              placeholder="Enter total applicable deductions"
-            />
-          </div>
-          <div class="form-inputs">
-            <button id="submit-btn" class="submit-btn">Submit</button>
-          </div>
+          <form>
+            <div class="form-inputs">
+              <label class="label"
+                >Enter gross Annual Income
+                <i
+                  class="bi bi-question-circle"
+                  title="Gross annual income is your total income salary in a year before any deduction."
+                ></i
+              ></label>
+              <input
+                type="number"
+                id="grossAmount"
+                class="input-box"
+                placeholder="Enter gross Annual Income"
+                required
+              />
+              <span id="grossError" class="gross-error-icon" title=""
+                ><i class="bi bi-exclamation-circle"></i
+              ></span>
+            </div>
+
+            <div class="form-inputs">
+              <label class="label"
+                >Enter extra Income
+                <i
+                  class="bi bi-question-circle"
+                  title="Income from another Buisness/Job"
+                ></i
+              ></label>
+              <input
+                type="number"
+                id="eIncome"
+                class="input-box"
+                placeholder="Enter extra Income"
+                required
+              />
+              <span id="extraError" class="extra-error-icon" title=""
+                ><i class="bi bi-exclamation-circle"></i
+              ></span>
+            </div>
+
+            <div class="form-inputs">
+              <label class="label"
+                >Enter age group
+                <i class="bi bi-question-circle" title="Enter Your Age "></i
+              ></label>
+              <select type="number" id="age" class="select-input-box">
+                <option value=""></option>
+                <option value="0">40<</option>
+                <option value="1">≥ 40 & < 60</option>
+                <option value="2">≥ 60</option>
+              </select>
+              <span id="ageError" class="age-error-icon" title=""
+                ><i class="bi bi-exclamation-circle"></i
+              ></span>
+            </div>
+
+            <div class="form-inputs">
+              <label class="label"
+                >Enter total applicable deductions
+                <i
+                  class="bi bi-question-circle"
+                  title="Your total applicable deductions"
+                ></i
+              ></label>
+              <input
+                type="number"
+                id="deductions"
+                class="input-box"
+                placeholder="Enter total applicable deductions"
+              />
+              <span id="deductError" class="deduct-error-icon" title=""
+                ><i class="bi bi-exclamation-circle"></i
+              ></span>
+            </div>
+
+            <div class="form-inputs">
+              <button id="submit-btn" class="submit-btn">Submit</button>
+            </div>
+          </form>
         </div>
       </div>
       <div id="pop-up-container" class="pop-up hidden">

@@ -29,42 +29,105 @@ function formatIndianRupee(number) {
   return formattedInteger;
 }
 
+function isFilled() {
+  var grossError = document.getElementById("grossError");
+  var extraError = document.getElementById("extraError");
+  var ageError = document.getElementById("ageError");
+
+  if (grossAmount.value == "") {
+    grossError.style.display = "inline";
+    grossError.title = "Gross amount is required";
+    return 1;
+  } else if (eAmount.value == "") {
+    extraError.style.display = "inline";
+    extraError.title = "Extra Amount is required";
+    return 1;
+  } else if (age.value === "") {
+    ageError.style.display = "inline";
+    ageError.title = "Age field is required";
+    return 1;
+  } else {
+    grossError.style.display = "none";
+    extraError.style.display = "none";
+    ageError.style.display = "none";
+    return 0;
+  }
+}
+
+function specialCharacters() {
+  var grossError = document.getElementById("grossError");
+  var extraError = document.getElementById("extraError");
+  var ageError = document.getElementById("ageError");
+  var deductError = document.getElementById("deductError");
+
+  if (isFilled() === 0) {
+    if (/[^0-9]/.test(parseInt(grossAmount.value))) {
+      grossError.style.display = "inline";
+      grossError.title = "Special Charactes are not allowed";
+      return 1;
+    } else if (/[^0-9]/.test(parseInt(eAmount.value))) {
+      extraError.style.display = "inline";
+      extraError.title = "Special Charactes are not allowed";
+      return 1;
+    } else if (/[^0-9]/.test(parseInt(deductions.value))) {
+      extraError.style.display = "inline";
+      extraError.title = "Special Charactes are not allowed";
+      return 1;
+    } else {
+      grossError.style.display = "none";
+      extraError.style.display = "none";
+      ageError.style.display = "none";
+      deductError.style.display = "none";
+      return 0;
+    }
+  } else {
+    return 1;
+  }
+}
+
 function calcultateTax(gA, eAmounts, age, deduct) {
   const a = parseInt(age.value);
   const ga = parseInt(gA.value);
   const ea = parseInt(eAmounts.value);
   const d = parseInt(deduct.value);
 
-  let totalIncome = (ga + ea - d) * 100000;
-  let tax;
-  let fIncome;
-
-  if (totalIncome > 800000) {
-    if (a < 40) {
-      tax = 0.3 * (totalIncome - 800000);
-      fIncome = totalIncome - tax;
-      price.innerHTML = formatIndianRupee(fIncome);
-      return;
-    } else if (a >= 40 && a < 60) {
-      tax = 0.4 * (totalIncome - 800000);
-      fIncome = totalIncome - tax;
-      price.innerHTML = formatIndianRupee(fIncome);
-      return;
-    } else if (a >= 60) {
-      tax = 0.1 * (totalIncome - 800000);
-      fIncome = totalIncome - tax;
-      price.innerHTML = formatIndianRupee(fIncome);
-      return;
-    }
+  if (specialCharacters() === 1) {
+    return 0;
   } else {
-    price.innerHTML = formatIndianRupee(totalIncome);
+    let totalIncome = (ga + ea - d) * 100000;
+    let tax;
+    let fIncome;
+
+    if (totalIncome > 800000) {
+      if (a == 0) {
+        tax = 0.3 * (totalIncome - 800000);
+        fIncome = totalIncome - tax;
+        price.innerHTML = formatIndianRupee(fIncome);
+        return;
+      } else if (a == 1) {
+        tax = 0.4 * (totalIncome - 800000);
+        fIncome = totalIncome - tax;
+        price.innerHTML = formatIndianRupee(fIncome);
+        return;
+      } else if (a == 2) {
+        tax = 0.1 * (totalIncome - 800000);
+        fIncome = totalIncome - tax;
+        price.innerHTML = formatIndianRupee(fIncome);
+        return;
+      }
+    } else {
+      price.innerHTML = formatIndianRupee(totalIncome);
+    }
   }
 }
 
-submitBtn.addEventListener("click", function () {
-  console.log(eAmount);
-  calcultateTax(grossAmount, eAmount, age, deductions);
-  popUp.classList.remove("hidden");
+submitBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  if (calcultateTax(grossAmount, eAmount, age, deductions) === 0) {
+    return;
+  } else {
+    popUp.classList.remove("hidden");
+  }
 });
 
 closeBtn.addEventListener("click", function () {
